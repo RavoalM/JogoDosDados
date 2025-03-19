@@ -7,11 +7,14 @@ internal class Program
         const int limiteLinhaChegada = 30;
         decimal saldo = 100;
 
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("================================================");
         Console.WriteLine("Jogo dos Dados");
         Console.WriteLine("================================================");
         Console.Write("Digite seu nome: ");
         string nomeUsuario = Console.ReadLine()!;
+
+        Console.ForegroundColor = ConsoleColor.Yellow;
 
         while (saldo > 0)
         {
@@ -36,45 +39,30 @@ internal class Program
 
             while (jogoEmAndamento)
             {
-                Console.Clear(); 
+                Console.Clear();
 
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine("================================================");
                 Console.WriteLine("Rodada do Usuário");
                 Console.WriteLine("================================================");
-                Console.WriteLine($"Casa {nomeUsuario}:{posicaoUsuario}|||Casa Computador:{posicaoComputador}");
+                Console.WriteLine($"Casa {nomeUsuario}: {posicaoUsuario} ||| Casa Computador: {posicaoComputador}");
                 Console.WriteLine("================================================");
                 Console.Write("Pressione ENTER para lançar o dado...");
                 Console.ReadLine();
 
                 int resultadoUsuario = SortearDado();
-               
+
                 Console.WriteLine("\n================================================");
                 Console.WriteLine($"O valor sorteado foi: {resultadoUsuario}!");
                 Console.WriteLine("-----------------------");
 
                 posicaoUsuario += resultadoUsuario;
                 Console.WriteLine($"Você está na posição: {posicaoUsuario} de {limiteLinhaChegada}!");
-                
-                
-                if (posicaoUsuario == 5 || posicaoUsuario == 10 || posicaoUsuario == 15 || posicaoUsuario == 25)
-                {
-                    Console.WriteLine("-----------------------");
-                    Console.WriteLine("EVENTO ESPECIAL: Avanço extra de 3 casas!");
-                    posicaoUsuario += 3;
-                    Console.WriteLine($"Você avançou para a posição: {posicaoUsuario}!");
-                   
-                }
-                else if (posicaoUsuario == 7 || posicaoUsuario == 13 || posicaoUsuario == 20)
-                {
-                    Console.WriteLine("-----------------------");
-                    Console.WriteLine("EVENTO ESPECIAL: Retorne 2 casas!");
-                    posicaoUsuario -= 2;
-                    Console.WriteLine($"Você recuou para a posição: {posicaoUsuario}!");
-
-                }
 
                 if (posicaoUsuario >= limiteLinhaChegada)
                 {
+
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.Clear();
                     Console.WriteLine("************************************************");
                     Console.WriteLine("*   *     *       *   *         *    *      *  *");
@@ -84,22 +72,23 @@ internal class Program
                     Console.WriteLine("************************************************");
                     Console.WriteLine();
                     Console.WriteLine("Você venceu o Jogo dos Dados!");
-                    saldo += aposta * 2; 
+                    saldo += aposta * 2;
                     Console.WriteLine($"Você ganhou R$ {aposta * 2:F2}! Saldo atual: R$ {saldo:F2}");
                     jogoEmAndamento = false;
                     continue;
                 }
-
+               
                 Console.WriteLine("================================================");
                 Console.Write("\nPressione ENTER para começar a rodada do computador...");
                 Console.ReadLine();
 
-                Console.Clear(); 
+                Console.Clear();
 
+                Console.ForegroundColor = ConsoleColor.DarkRed;  
                 Console.WriteLine("================================================");
                 Console.WriteLine("Rodada do Computador");
                 Console.WriteLine("================================================");
-                Console.WriteLine($"Casa {nomeUsuario}:{posicaoUsuario}|||Casa Computador:{posicaoComputador}");
+                Console.WriteLine($"Casa {nomeUsuario}: {posicaoUsuario} ||| Casa Computador: {posicaoComputador}");
                 Console.WriteLine("================================================");
                 Console.Write("Pressione ENTER para lançar o dado...");
                 Console.ReadLine();
@@ -112,26 +101,10 @@ internal class Program
                 posicaoComputador += resultadoComputador;
                 Console.WriteLine($"O computador está na posição: {posicaoComputador} de {limiteLinhaChegada}!");
 
-                
-                if (posicaoComputador == 5 || posicaoComputador == 10 || posicaoComputador == 15 || posicaoComputador == 25)
-                {
-                    Console.WriteLine("-----------------------");
-                    Console.WriteLine("EVENTO ESPECIAL: Avanço extra de 3 casas!");
-                    posicaoComputador += 3;
-                    Console.WriteLine($"O computador avançou para a posição: {posicaoComputador}!");
-                    
-                }
-                else if (posicaoComputador == 7 || posicaoComputador == 13 || posicaoComputador == 20)
-                {
-                    Console.WriteLine("-----------------------");
-                    Console.WriteLine("EVENTO ESPECIAL: Retorne de 2 casas!");
-                    posicaoComputador -= 2;
-                    Console.WriteLine($"O computador recuou para a posição: {posicaoComputador}!");
-                    
-                }
-
                 if (posicaoComputador >= limiteLinhaChegada)
                 {
+
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.Clear();
                     Console.WriteLine("************************************************");
                     Console.WriteLine("*                                              *");
@@ -140,7 +113,7 @@ internal class Program
                     Console.WriteLine("*      PARECE QUE A CASA LEVOU ESSA            *");
                     Console.WriteLine("*                                              *");
                     Console.WriteLine("************************************************");
-                    saldo -= aposta; 
+                    saldo -= aposta;
                     Console.WriteLine($"{nomeUsuario} perdeu R$ {aposta:F2}. Saldo atual: R$ {saldo:F2}");
                     jogoEmAndamento = false;
                     continue;
@@ -148,7 +121,6 @@ internal class Program
                 Console.WriteLine("================================================");
                 Console.Write("\nPressione ENTER para começar a rodada do usuário...");
                 Console.ReadLine();
-               
             }
 
             if (saldo <= 0)
@@ -164,7 +136,6 @@ internal class Program
                 break;
         }
     }
-
 
     static int SortearDado()
     {
