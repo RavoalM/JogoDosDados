@@ -41,7 +41,7 @@ internal class Program
             {
                 Console.Clear();
 
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("================================================");
                 Console.WriteLine("Rodada do Usuário");
                 Console.WriteLine("================================================");
@@ -59,11 +59,31 @@ internal class Program
                 posicaoUsuario += resultadoUsuario;
                 Console.WriteLine($"Você está na posição: {posicaoUsuario} de {limiteLinhaChegada}!");
 
+                if (posicaoUsuario == 5 || posicaoUsuario == 10 || posicaoUsuario == 15 || posicaoUsuario == 25)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green; 
+                    Console.WriteLine("-----------------------");
+                    Console.WriteLine("EVENTO ESPECIAL: Avanço extra de 3 casas!");
+                    posicaoUsuario += 3;
+                    Console.WriteLine($"Você avançou para a posição: {posicaoUsuario}!");
+                    Console.WriteLine("================================================");
+                    
+                }
+                else if (posicaoUsuario == 7 || posicaoUsuario == 13 || posicaoUsuario == 20)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red; 
+                    Console.WriteLine("-----------------------");
+                    Console.WriteLine("EVENTO ESPECIAL: Retorne 2 casas!");
+                    posicaoUsuario -= 2;
+                    Console.WriteLine($"Você recuou para a posição: {posicaoUsuario}!");
+                    Console.WriteLine("================================================");
+                    
+                }
+
                 if (posicaoUsuario >= limiteLinhaChegada)
                 {
-
-                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("************************************************");
                     Console.WriteLine("*   *     *       *   *         *    *      *  *");
                     Console.WriteLine("*     *    !!PARABÉNS, CAMPEÃO!!      *        *");
@@ -77,14 +97,15 @@ internal class Program
                     jogoEmAndamento = false;
                     continue;
                 }
-               
+
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("================================================");
                 Console.Write("\nPressione ENTER para começar a rodada do computador...");
                 Console.ReadLine();
 
                 Console.Clear();
 
-                Console.ForegroundColor = ConsoleColor.DarkRed;  
+                Console.ForegroundColor = ConsoleColor.Magenta;  
                 Console.WriteLine("================================================");
                 Console.WriteLine("Rodada do Computador");
                 Console.WriteLine("================================================");
@@ -101,6 +122,25 @@ internal class Program
                 posicaoComputador += resultadoComputador;
                 Console.WriteLine($"O computador está na posição: {posicaoComputador} de {limiteLinhaChegada}!");
 
+                if (posicaoUsuario == 5 || posicaoUsuario == 10 || posicaoUsuario == 15 || posicaoUsuario == 25)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("-----------------------");
+                    Console.WriteLine("EVENTO ESPECIAL: Avanço extra de 3 casas!");
+                    posicaoUsuario += 3;
+                    Console.WriteLine($"O computador avançou para a posição: {posicaoUsuario}!");
+                    Console.WriteLine("================================================");
+                    
+                }
+                else if (posicaoUsuario == 7 || posicaoUsuario == 13 || posicaoUsuario == 20)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("-----------------------");
+                    Console.WriteLine("EVENTO ESPECIAL: Retorne 2 casas!");
+                    posicaoUsuario -= 2;
+                    Console.WriteLine($"O computador recuou para a posição: {posicaoUsuario}!");
+                    Console.WriteLine("================================================");
+                }
                 if (posicaoComputador >= limiteLinhaChegada)
                 {
 
@@ -118,6 +158,7 @@ internal class Program
                     jogoEmAndamento = false;
                     continue;
                 }
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("================================================");
                 Console.Write("\nPressione ENTER para começar a rodada do usuário...");
                 Console.ReadLine();
