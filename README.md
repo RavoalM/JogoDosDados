@@ -22,7 +22,7 @@ Pegue seus dados virtuais, aposte na sua sorte e que comecem os jogos! 🏆🎲
 <br> <br>
 - **Replay**: Enquanto houver dinheiro no seu saldo, você pode continuar jogando. Mas se zerar... Game Over!
 <br> <br>
-![](https://i.imgur.com/5zjJEth.gif)
+![](https://i.imgur.com/Ap5s78j.gif)
 
 ## Como utilizar
 
@@ -57,4 +57,4 @@ JogoDosDados.ConsoleApp.exe
 - .NET SDK (recomendado .NET 8.0 ou superior) para compilação e execução do projeto.
 
 # Tenha um bom jogo
-![](https://blog.stripme.com.br/wp-content/uploads/2024/10/strip-me-blog-filmes-de-apostas-02.gif)
+![](https://i.pinimg.com/originals/75/09/82/750982c4ccc4737e643207f54c40170a.gif)
