@@ -13,6 +13,9 @@ internal class Program
 
         while (saldo > 0)
         {
+            posicaoUsuario = 0;
+            posicaoComputador = 0;
+
             decimal aposta = ObterAposta();
 
             bool jogoEmAndamento = true;
